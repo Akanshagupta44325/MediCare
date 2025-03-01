@@ -98,9 +98,15 @@ const generateAdminReport = async () => {
  const jwt = require ('jsonwebtoken');
  const generatejwttoken = (userId) => {
     const token = jwt.sign ({ userId},'your-jwt-secret',{expiresIn:'1h'});
-    retuen token;
-
- };
+    return token;
+}; 
+const verifyjwtToken = (token) =>{
+    try {
+        const decoded = jwt.verify(token, 'yourjwt-secret');
+    } catch (err) {
+        return null;
+    }
+};
 
 
 
